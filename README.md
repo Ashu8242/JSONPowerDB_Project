@@ -1,101 +1,123 @@
-# *Login2Xplore---JsonDB-Project*
-A small project to demonstrate the new technology - JsonDB.
+# JSON-Power-DB-Project
 
-### :warning: *Warning !* ## 
-*Since the api uses Http-connection (and not Https) and all the webhosting servers only allow Https connections.
-So, This site faces the issue of sending and retrieving data. This issue will be resolved as soon the developers provide a secure-connection to API.
-Although the illustrations are provided on the complete process.
-But still if anyone wants to check this beautifully constructed page, Welcome !*
+JSONPowerDB is a High Performance, Light Weight, Ajax Enabled, Serverless, Simple to Use, Real-time Database. Easy and fast to develop database applications without using any server side programming / scripting or without installing any kind of database.
 
-__Hosted Site link__  :  https://login2xplore-project.herokuapp.com/index.html    
+It is basically a Database Server with Developer friendly REST API services.
 
-## *Introduction*
-    -This is a simple and elegant HTML,CSS,Js/jQuery Login/SignUp Page,
-              to demonstrate the data sending & request handling over JsonPoweredDB-api for database management.
-    -This project uses JsonPoweredDB for the backend usage of saving all users data in the Json-format.
-    -Being the most efficient database, the time taken to POST & GET user-data from the database is almost null.
-    -Unlike SQL and relational databases, this JsonPoweredDB feels user and developer friendly.
-    
-## *Easiest Syntax Usage :*
-    
-    // GET - Query
-    
-    {
-    "token": "2134770734|19056227XXXXX281054|2134XXXXXX",
-    "cmd": "GET",
-    "dbName": "Company",
-    "rel": "Employee",
-    "jsonStr":{
-        "empName": "Oshin Pojta"
-        }
-    }
-    
-    // INSERT - Query
-    
-    {
-      "token" : "90935402|-31948797XXXX293566|909XXXX",
-      "cmd" : "PUT",
-      "dbName" : "Emloyee",
-      "rel" : "Emp-rel",
-      "jsonStr" : {
-        "name" : "Oshin Pojta",
-        "email" : "Sujanian785@gmail.com",
-        "mobile" : 7018516XXX,
-        "address" : "Solan"
-            }
-    }
-    
-*If there is no Database named - 'Employee', It will automatically create Database with the name without forcing developers to write code or throwing hundreds of errors.*
+JPDB has ready to use API for Json document DB, RDBMS, Key-value DB, GeoSpatial DB and Time Series DB functionality. JPDB supports and advocates for true serverless and pluggable API development.
 
-## *Benefits of using JsonPowerDB*
-    -Proprietary algorithm for High Performance CRUD operations. Multiple times faster than popular DBMS.
-    -Serverless support for faster development - A UI developer can develop complete dynamic application.
-    -DBMS with built in web / application server and embedded caching makes the performance lightning fast.
-    -Server side Native NoSQL - best query performance.
-    -In-built support to query on multiple JPDB databases.
-    -Multi-mode DBMS - Document DB, Key-Value DB, RDBMS support.
-    -Schema free - easy to develop and maintain.
-    -Web-services API - Can be used with any programming language that has support for HTTP.
-    
-## *Illustrations*
+> Website live on --> https://jsonpowerdb.herokuapp.com/
 
-![image](https://github.com/oshinpojta/Login2Xplore---JsonDB-Project/blob/main/Screenshots/1.Sign-Up.png "SignUp")
-*-- Tapped to SignUp Page*
+Documentation Link --> https://login2explore.com/jpdb/docs.html#jpdb-command-request
+
+![image](https://user-images.githubusercontent.com/76425862/177053102-99182d48-d40c-446f-9c09-83dd4dd510f2.png)
+
+### Benefits Of Using JSONPowerDB:
+- It is realtime and simple to use.
+- Easy to maintain the reconds.
+- Serverless support - fast development - cuts time to market.
+- Build using world's fastest indexing engine PowerIndex which gives unlimited data capacity, supporting unlimited indexes, realtime data processing which makes it fast and secure.
+- Give developer friendly Webservices API which reduce the developement cost.
+- Multiple Security Layers.
+- Schema free - easy to maintain
+- A single instance - Million Indexes
+- Inbuilt support for querying multiple databases.
+- It is light weight.
+- It is a serverless database so that you don't have to choose an instance size at all.
+
+### Use cases:
+- All RDMS use cases.
+- All key-value use cases.
+- All document use cases.
+- Time series/geospatial analytics.
+- Real time application for data analytics.
+- Live working HTML templates.
+- Any software application that needs backend DB. (Dynamic web-apps/Mobile/Desktop Apps)
+ 
+![image](https://user-images.githubusercontent.com/76425862/177053664-27e22530-1012-4aed-9746-130678ac6e01.png)
+
+## Project Breakdown :
+
+In this project, I create 6 methods to play with JSONPowerDB.
+
+1. GET ALL IN DB --> Get all records in DB
+2. GET BY KEY --> Get your desired data by inputting the key name
+3. GET BY RECORD --> Get data by putting the record number
+4. PUT METHOD --> Insert single record to the DB
+5. UPDATE IN DB --> Update the data in DB
+6. REMOVE IN DB --> Remove the data in DB
+
+### GET ALL IN DB -->
+
+![image](https://user-images.githubusercontent.com/76425862/177054206-e24dcc7a-1ea5-4e2c-a6ff-6aa595ed330c.png)
+![image](https://user-images.githubusercontent.com/76425862/177053641-d4959ff9-8182-4f30-a044-dd356600da1e.png)
+
+```
+{
+    "token": "608862679|6881615563234464505|608862542",
+    "dbName": "INDORE-TERAPANTH-DIRECTORY",
+    "cmd": "GET_ALL",
+    "rel": "MEMBERS-FAMILY",
+    "pageNo": 1,
+    "pageSize": 5,
+    "createTime": true,
+    "updateTime": true
+}
+```
+
+In response, it will give you all the records in the database of particular relation metioned.
+
+```
+{
+  "data": "{\"file_status\":\"OK\",\"total_records\":4,\"json_records\":[{\"rec_no\":1,\"created\":1656865732294,\"record\":{\"password\":\"1234\",\"name\":\"Harsh\",\"id\":\"3\",\"mobileno\":\"9967025671\",\"email\":\"harsh@gmail.com\",\"mark\":100},\"updated\":1656865732294},{\"rec_no\":2,\"created\":1656866471493,\"record\":{\"name\":\"Indrajit Sahu\",\"id\":\"2\",\"mobileno\":\"1064728030\",\"email\":\"ind7@gmail.com\"},\"updated\":1656866471493},{\"rec_no\":3,\"created\":1656866541343,\"record\":null,\"updated\":1656866541343},{\"rec_no\":4,\"created\":1656866688123,\"record\":null,\"updated\":1656868402835}],\"total_pages\":1,\"current_page\":1}",
+  "message": "DATA RETRIEVED FROM PI",
+  "status": 200
+}
+```
+
+All the records will be shown accordingly.
+
+### GET BY KEY -->
+
+![image](https://user-images.githubusercontent.com/76425862/177053614-5f2b5478-700d-4588-939f-93bbf3660b18.png)
+
+It will take 3 parameters as database name, relation and the key to find the record at tha database.
+
+### GET BY RECORD -->
+
+![image](https://user-images.githubusercontent.com/76425862/177053677-54e47efb-c097-45c8-a6dc-7df3d52b95b4.png)
+
+Here we just have to give the database and relation along with the record number, and it will give us the record present in the relation.
+
+### PUT Method to Insert Data -->
+
+![image](https://user-images.githubusercontent.com/76425862/177053729-c57923ca-6a25-499c-b033-102e79e62abb.png)
+
+By PUT method, we can create/insert data in to the database, either it will be row or coloumn, data can be insert multiple times.
+
+With this you can create the databases and relations. 
+
+### UPDATE IN DB -->
+
+![image](https://user-images.githubusercontent.com/76425862/177053962-18151075-0e27-4e92-a1e4-a6fdff43453d.png)
+
+In UPDATE, we can modify the existing records in the databases.
+
+Here, we can update multiple records in the database or add a new column in a record.
+
+### REMOVE IN DB -->
+
+![image](https://user-images.githubusercontent.com/76425862/177054058-aea14071-59e3-4103-a37c-ddb8a1339a58.png)
+![image](https://user-images.githubusercontent.com/76425862/177054071-4c60b222-2bdf-42ae-a869-7c64970f470c.png)
 
 
-![image](https://github.com/oshinpojta/Login2Xplore---JsonDB-Project/blob/main/Screenshots/2.Sign-Up.png)
-*-- Values Entered*
+By this REMOVE method, we can remove the entire record from the relation with just the record number.
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+Apart from this, we can perform other oprations as well like first-record, last-record, remove-database, remove-relation and much more. But this is a basic project to understand what and how the JSONPowerDB works.
 
 
-![image](https://github.com/oshinpojta/Login2Xplore---JsonDB-Project/blob/main/Screenshots/3.Sign-Up.png)
-*-- Registered to DB*
 
 
-![image](https://github.com/oshinpojta/Login2Xplore---JsonDB-Project/blob/main/Screenshots/4.Sign-In.png)
-*-- Tapped to Login Page*
 
-
-![image](https://github.com/oshinpojta/Login2Xplore---JsonDB-Project/blob/main/Screenshots/5.Sign-In.png)
-*-- Entered Credentials*
-
-
-![image](https://github.com/oshinpojta/Login2Xplore---JsonDB-Project/blob/main/Screenshots/6.Sign-In.png)
-*-- Server Response with user-data stored in*
-
-
-![image](https://github.com/oshinpojta/Login2Xplore---JsonDB-Project/blob/main/Screenshots/7.Inserted.png)
-*-- Inside the database-Admin-panel*
-
-
-## Release History
-*Originally developed by Oshin Pojta, the then under-graduate from Lovely Professional University,
-                          for the demonstration of JsonPoweredDB on Feb-14,2021. 
-    -This project is a testimony of the course provided by Login2Xplore Company, 
-     that demonstrates the usage and functionality of Json-Powered Database. 
-    -The date of submission of this project was by Feb-15,2021.* 
-
-## Sources
-
-*CodePen.io , Youtube.com, SweetAlert.js.org, BootStrap and jQuery for Frontend.*
-
-*Login2Xplore Documentation link for Backend & Miscellaneous Query-Reference* : http://login2explore.com/jpdb/index.html#introduction-jpdb
